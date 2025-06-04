@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.1.3",
-    "@astrojs/svelte": "^7.0.13",
+    "@astrojs/svelte": "^7.1.0",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.4.3",
     "svelte": "^5.28.2",
