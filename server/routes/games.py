@@ -18,8 +18,23 @@ def get_games_base_query() -> Query:
 
 @games_bp.route('/api/games', methods=['GET'])
 def get_games() -> Response:
-    # Use the base query for all games
-    games_query = get_games_base_query().all()
+    from flask import request
+
+    # Get filter parameters
+    publisher_id = request.args.get('publisher_id', type=int)
+    category_id = request.args.get('category_id', type=int)
+    
+    # Start with base query
+    query = get_games_base_query()
+    
+    # Apply filters if provided
+    if publisher_id is not None:
+        query = query.filter(Game.publisher_id == publisher_id)
+    if category_id is not None:
+        query = query.filter(Game.category_id == category_id)
+    
+    # Execute query
+    games_query = query.all()
     
     # Convert the results using the model's to_dict method
     games_list = [game.to_dict() for game in games_query]
