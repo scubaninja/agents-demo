@@ -14,5 +14,6 @@
     ],
     "github.copilot.nextEditSuggestions.enabled": true,
     "editor.tabSize": 4,
-    "chat.agent.enabled": true
+    "chat.agent.enabled": true,
+    "sarif-viewer.connectToGithubCodeScanning": "off"
 }
